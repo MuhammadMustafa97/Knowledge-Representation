@@ -1,0 +1,349 @@
+@prefix : <http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona/> .
+
+<http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona> rdf:type owl:Ontology ;
+                                                                         rdfs:comment "This is a University organization OWL" ;
+                                                                         rdfs:isDefinedBy "Mustafa" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#admits
+:admits rdf:type owl:ObjectProperty ;
+        rdfs:domain :University ;
+        rdfs:range :Student ;
+        rdfs:comment "University admits Students"@en .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#areEnrolledby
+:areEnrolledby rdf:type owl:ObjectProperty ;
+               rdfs:domain :Course ;
+               rdfs:range :Student .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#employs
+:employs rdf:type owl:ObjectProperty ;
+         rdfs:domain :University ;
+         rdfs:range :Staff .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#enrollsFor
+:enrollsFor rdf:type owl:ObjectProperty ;
+            owl:inverseOf :enrollsFor ;
+            rdfs:domain :Student ;
+            rdfs:range :Course .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#handles
+:handles rdf:type owl:ObjectProperty ;
+         rdfs:domain :Academic ;
+         rdfs:range :Course .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#hasDept
+:hasDept rdf:type owl:ObjectProperty ;
+         rdfs:domain :Course ;
+         rdfs:range :Department .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#studies
+:studies rdf:type owl:ObjectProperty ;
+         rdfs:domain :Student ;
+         rdfs:range :Subject .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#teach
+:teach rdf:type owl:ObjectProperty ;
+       rdfs:domain :Academic ;
+       rdfs:range :Subject .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#teaches
+:teaches rdf:type owl:ObjectProperty ;
+         rdfs:domain :Academic ;
+         rdfs:range :Student .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#workAs
+:workAs rdf:type owl:ObjectProperty ;
+        rdfs:domain :Staff ;
+        rdfs:range :Job .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#ExperienceInYears
+:ExperienceInYears rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Staff ;
+                   rdfs:range xsd:int ;
+                   rdfs:comment "Indicates the years of experience"@en .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#hasCredit
+:hasCredit rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Student ;
+           rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#hasID_Number
+:hasID_Number rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Person ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#has_Subject
+:has_Subject rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Subject ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#joined_on
+:joined_on rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Student ;
+           rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Academic
+:Academic rdf:type owl:Class ;
+          rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Administrative
+:Administrative rdf:type owl:Class ;
+                rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#AsstProf
+:AsstProf rdf:type owl:Class ;
+          owl:equivalentClass :Professor ;
+          rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Bachelors_Student
+:Bachelors_Student rdf:type owl:Class ;
+                   rdfs:subClassOf :Student .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Business
+:Business rdf:type owl:Class ;
+          rdfs:subClassOf :Department .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Business_Management
+:Business_Management rdf:type owl:Class ;
+                     rdfs:subClassOf :Course .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#CS
+:CS rdf:type owl:Class ;
+    rdfs:subClassOf :Course .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Course
+:Course rdf:type owl:Class ;
+        rdfs:subClassOf :University .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Department
+:Department rdf:type owl:Class ;
+            rdfs:subClassOf :University .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Informatica
+:Informatica rdf:type owl:Class ;
+             rdfs:subClassOf :Department .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Job
+:Job rdf:type owl:Class ;
+     rdfs:subClassOf :University .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Masters_Student
+:Masters_Student rdf:type owl:Class ;
+                 rdfs:subClassOf :Student .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#PHD_Student
+:PHD_Student rdf:type owl:Class ;
+             rdfs:subClassOf :Student .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :University .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Professor
+:Professor rdf:type owl:Class ;
+           rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Recruitment_Officer
+:Recruitment_Officer rdf:type owl:Class ;
+                     rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Software_Eng
+:Software_Eng rdf:type owl:Class ;
+              rdfs:subClassOf :Course .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Staff
+:Staff rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Subject
+:Subject rdf:type owl:Class ;
+         rdfs:subClassOf :University .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#University
+:University rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#AI_School_Verona
+:AI_School_Verona rdf:type owl:NamedIndividual ,
+                           :University ;
+                  :admits :Carlo ,
+                          :Gautam ,
+                          :Muneeb ,
+                          :Mustafa ,
+                          :Tesfay ,
+                          :Umar ;
+                  :employs :Alberto_Castellini ,
+                           :Matteo_Cristani .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Alberto_Castellini
+:Alberto_Castellini rdf:type owl:NamedIndividual ,
+                             :Academic ;
+                    :teach :Deep_Learning ;
+                    :teaches :Gautam ,
+                             :Muneeb ,
+                             :Mustafa ;
+                    :workAs :Professor ;
+                    :ExperienceInYears 20 ;
+                    :hasID_Number "VRT100002" .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#CS
+:CS rdf:type owl:NamedIndividual ,
+             :CS .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Carlo
+:Carlo rdf:type owl:NamedIndividual ,
+                :Student ;
+       :enrollsFor :CS ;
+       :studies :Deep_Learning ;
+       :hasCredit 36 ;
+       :hasID_Number "VR10001" ;
+       :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Deep_Learning
+:Deep_Learning rdf:type owl:NamedIndividual ,
+                        :Subject .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Economics
+:Economics rdf:type owl:NamedIndividual ,
+                    :Subject .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Gautam
+:Gautam rdf:type owl:NamedIndividual ,
+                 :Student ;
+        :enrollsFor :CS ;
+        :studies :Deep_Learning ;
+        :hasCredit 36 ;
+        :hasID_Number "VR10002" ;
+        :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Matteo_Cristani
+:Matteo_Cristani rdf:type owl:NamedIndividual ,
+                          :Academic ;
+                 :teach :Natural_Language_Processing ;
+                 :teaches :Carlo ,
+                          :Tesfay ,
+                          :Umar ;
+                 :workAs :Professor ;
+                 :ExperienceInYears 20 ;
+                 :hasID_Number "VRT10001" .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Muneeb
+:Muneeb rdf:type owl:NamedIndividual ,
+                 :Student ;
+        :enrollsFor :CS ;
+        :studies :Natural_Language_Processing ;
+        :hasCredit 36 ;
+        :hasID_Number "VR10003" ;
+        :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Mustafa
+:Mustafa rdf:type owl:NamedIndividual ,
+                  :Student ;
+         :enrollsFor :Deep_Learning ;
+         :studies :Deep_Learning ;
+         :hasCredit 36 ;
+         :hasID_Number "VR10004" ;
+         :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Natural_Language_Processing
+:Natural_Language_Processing rdf:type owl:NamedIndividual ,
+                                      :Subject .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Professor
+:Professor rdf:type owl:NamedIndividual ,
+                    :Professor .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Tesfay
+:Tesfay rdf:type owl:NamedIndividual ,
+                 :Student ;
+        :enrollsFor :CS ;
+        :studies :Natural_Language_Processing ;
+        :hasCredit 36 ;
+        :hasID_Number "VR10005" ;
+        :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mustafa/ontologies/2026/0/AI_School_Verona#Umar
+:Umar rdf:type owl:NamedIndividual ,
+               :Student ;
+      :enrollsFor :CS ;
+      :studies :Natural_Language_Processing ;
+      :hasCredit 36 ;
+      :hasID_Number "VR10006" ;
+      :joined_on "2025-10-01T09:00:00"^^xsd:dateTime .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
